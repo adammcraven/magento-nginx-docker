@@ -1,13 +1,7 @@
-FROM nginx:1.9
+FROM nginx:latest
+
 MAINTAINER Adam Craven <adam@ChannelAdam.com>
 
-RUN apt-get update && \
-    apt-get install -y \
-      git \
-      vim
-
-COPY ./default.conf /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx
 
 RUN usermod -u 501 nginx
-
-#WORKDIR /src
